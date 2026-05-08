@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOO Twitter Auth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex items-center justify-center">
+    <div class="max-w-lg w-full mx-auto p-8">
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-3xl font-bold mx-auto mb-4">Z</div>
+            <h1 class="text-3xl font-black">ZOO Twitter Auth</h1>
+            <p class="text-gray-400 mt-2">Complete the OAuth flow to connect Twitter</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Step 1 -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center font-bold text-sm">1</span>
+                    <span class="font-bold">Generate Auth URL</span>
+                </div>
+                <button onclick="startAuth()" class="w-full py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition font-bold">
+                    Generate Authentication URL
+                </button>
+                <div id="authUrlBox" class="hidden mt-3">
+                    <p class="text-sm text-gray-400 mb-2">Click the link below, authorize, then copy the code from the callback URL:</p>
+                    <a id="authUrlLink" href="#" target="_blank" class="text-pink-400 text-sm break-all hover:underline"></a>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center font-bold text-sm">2</span>
+                    <span class="font-bold">paste Callback Code</span>
+                </div>
+                <input type="text" id="codeInput" placeholder="Paste the 'code' from callback URL here" 
+                    class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-pink-500 focus:outline-none text-sm">
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-sm">3</span>
+                    <span class="font-bold">Exchange for Access Token</span>
+                </div>
+                <button onclick="exchangeCode()" class="w-full py-3 rounded-lg bg-cyan-500 hover:bg-cyan-600 transition font-bold">
+                    Exchange Code → Tokens
+                </button>
+            </div>
+
+            <!-- Output -->
+            <div id="outputBox" class="hidden bg-black/50 rounded-xl p-6 border border-white/10">
+                <h3 class="font-bold mb-3 text-green-400">✅ Credentials (send these to OWL)</h3>
+                <pre id="output" class="text-xs text-gray-300 overflow-x-auto"></pre>
+                <button onclick="copyOutput()" class="mt-3 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition text-sm">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let codeVerifier = '';
+
+    async function startAuth() {
+        // Generate PKCE
+        const array = new Uint8Array(96);
+        crypto.getRandomValues(array);
+        codeVerifier = Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        // Save in localStorage
+        localStorage.setItem('tw_verifier', codeVerifier);
+        
+        // Generate challenge
+        const encoder = new TextEncoder();
+        const data = encoder.encode(codeVerifier);
+        const digest = await crypto.subtle.digest('SHA-256', data);
+        const challenge = btoa(String.fromCharCode(...new Uint8Array(digest)))
+            .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        
+        const params = new URLSearchParams({
+            response_type: 'code',
+            client_id: 'eF9PczBEeWFBUlNKM1libF9TaVc6MTpjaQ',
+            redirect_uri: 'http://localhost:3000/callback',
+            scope: 'tweet.read tweet.write users.read offline.access',
+            state: 'zoo_' + Math.random().toString(36).slice(2, 10),
+            code_challenge: challenge,
+            code_challenge_method: 'S256',
+        });
+        
+        const url = 'https://twitter.com/i/oauth2/authorize?' + params.toString();
+        document.getElementById('authUrlBox').classList.remove('hidden');
+        document.getElementById('authUrlLink').href = url;
+        document.getElementById('authUrlLink').textContent = url;
+    }
+
+    async function exchangeCode() {
+        const code = document.getElementById('codeInput').value.trim();
+        if (!code) { alert('Please paste the code from the callback URL'); return; }
+        
+        const verifier = localStorage.getItem('tw_verifier');
+        if (!verifier) { alert('Verifier lost. Click Step 1 again to regenerate.'); return; }
+        
+        const output = document.getElementById('output');
+        const outputBox = document.getElementById('outputBox');
+        output.textContent = 'Exchanging code for tokens...';
+        outputBox.classList.remove('hidden');
+        
+        try {
+            const resp = await fetch('https://api.twitter.com/2/oauth2/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                },
+                body: new URLSearchParams({
+                    grant_type: 'authorization_code',
+                    code: code,
+                    redirect_uri: 'http://localhost:3000/callback',
+                    code_verifier: verifier,
+                }).toString()
+            });
+            
+            const data = await resp.json();
+            
+            if (data.access_token) {
+                // Get user info
+                const userResp = await fetch('https://api.twitter.com/2/users/me', {
+                    headers: { 'Authorization': 'Bearer ' + data.access_token }
+                });
+                const userData = await userResp.json();
+                
+                const result = {
+                    access_token: data.access_token,
+                    refresh_token: data.refresh_token,
+                    token_type: data.token_type,
+                    expires_in: data.expires_in,
+                    user: userData.data
+                };
+                
+                output.textContent = JSON.stringify(result, null, 2);
+                
+                // Also try posting a test tweet
+                const tweetResp = await fetch('https://api.twitter.com/2/tweets', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + data.access_token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: '🚀 ZOO Technologies — AI-Native. Always On.' })
+                });
+                const tweetData = await tweetResp.json();
+                output.textContent += '\n\nTWEET RESULT:\n' + JSON.stringify(tweetData, null, 2);
+            } else {
+                output.textContent = 'ERROR:\n' + JSON.stringify(data, null, 2);
+            }
+        } catch(e) {
+            output.textContent = 'Error: ' + e.message + '\n\nThis might be a CORS issue. Try using a CORS proxy or the terminal method.';
+        }
+    }
+
+    function copyOutput() {
+        const text = document.getElementById('output').textContent;
+        navigator.clipboard.writeText(text);
+        alert('Copied! Send this to OWL in Discord.');
+    }
+    </script>
+</body>
+</html>
