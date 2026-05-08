@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#030712"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="100" r="200" fill="url(#glow)" opacity="0.5"/>
+  <circle cx="1050" cy="530" r="200" fill="#8b5cf6" opacity="0.15"/>
+  <circle cx="900" cy="80" r="100" fill="#06b6d4" opacity="0.1"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.05">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- ZOO Logo -->
+  <rect x="100" y="180" width="80" height="80" rx="20" fill="url(#accent)"/>
+  <text x="140" y="240" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="white" text-anchor="middle">Z</text>
+  
+  <!-- Main title -->
+  <text x="220" y="220" font-family="Arial, sans-serif" font-size="56" font-weight="900" fill="white">ZOO</text>
+  <text x="220" y="265" font-family="Arial, sans-serif" font-size="24" fill="#9ca3af">AI-Native Technology Company</text>
+  
+  <!-- Tagline -->
+  <text x="100" y="340" font-family="Arial, sans-serif" font-size="32" fill="url(#accent)" font-weight="700">Intelligent Systems</text>
+  <text x="100" y="380" font-family="Arial, sans-serif" font-size="28" fill="#d1d5db">that work 24/7.</text>
+  
+  <!-- Feature cards -->
+  <rect x="100" y="410" width="180" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="190" y="445" font-family="Arial, sans-serif" font-size="14" fill="#ec4899" text-anchor="middle" font-weight="700">AI AGENTS</text>
+  <text x="190" y="468" font-family="Arial, sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">Autonomous 24/7</text>
+  
+  <rect x="300" y="410" width="180" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="390" y="445" font-family="Arial, sans-serif" font-size="14" fill="#a855f7" text-anchor="middle" font-weight="700">TRADING</text>
+  <text x="390" y="468" font-family="Arial, sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">MT5 + Backtesting</text>
+  
+  <rect x="500" y="410" width="180" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="590" y="445" font-family="Arial, sans-serif" font-size="14" fill="#06b6d4" text-anchor="middle" font-weight="700">FULL-STACK</text>
+  <text x="590" y="468" font-family="Arial, sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">Ship in weeks</text>
+  
+  <rect x="700" y="410" width="180" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="790" y="445" font-family="Arial, sans-serif" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="700">OPEN SOURCE</text>
+  <text x="790" y="468" font-family="Arial, sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">Free tools</text>
+  
+  <!-- Product Hunt badge -->
+  <rect x="100" y="520" width="280" height="60" rx="30" fill="url(#accent)" opacity="0.9"/>
+  <text x="240" y="558" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">🚀 We're on Product Hunt!</text>
+  
+  <!-- URL -->
+  <text x="900" y="580" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">zoo.dev</text>
+</svg>
