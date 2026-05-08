@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/products/(.*)", "dest": "/products/$1" },
+    { "src": "/products", "dest": "/products/index.html" }
+  ]
+}
