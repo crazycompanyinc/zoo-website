@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZOO — AI-Native Technology Company</title>
-    <meta name="description" content="ZOO builds AI agents, trading systems, and software that works 24/7. We create autonomous technology for the future.">
+    <title>ZOO — AI-Native Technology Company | Agents, Trading Systems & Software</title>
+    <meta name="description" content="ZOO builds AI agents, algorithmic trading systems, and full-stack software. We create autonomous technology that works 24/7. Explore our services, products, and open-source projects.">
+    <meta name="keywords" content="AI agents, algorithmic trading, MT5 expert advisors, full-stack development, SaaS boilerplate, open source, trading platform">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,16 +14,9 @@
                 extend: {
                     colors: {
                         zoo: {
-                            50: '#fdf2f8',
-                            100: '#fce7f3',
-                            200: '#fbcfe8',
-                            300: '#f9a8d4',
-                            400: '#f472b6',
-                            500: '#ec4899',
-                            600: '#db2777',
-                            700: '#be185d',
-                            800: '#9d174d',
-                            900: '#831843',
+                            50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4',
+                            400: '#f472b6', 500: '#ec4899', 600: '#db2777', 700: '#be185d',
+                            800: '#9d174d', 900: '#831843',
                         }
                     }
                 }
@@ -33,11 +27,14 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); } 50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.6); } }
         @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes count-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
         .animate-gradient { background-size: 200% 200%; animation: gradient 8s ease infinite; }
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
         .text-gradient { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-card { transition: all 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); border-color: rgba(236, 72, 153, 0.5); }
     </style>
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
@@ -81,9 +78,29 @@
                 <a href="#services" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg animate-pulse-glow">
                     Explore Services
                 </a>
-                <a href="#products" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
-                    Browse Products
+                <a href="https://github.com/crazycompanyinc" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
+                    View on GitHub
                 </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 max-w-3xl mx-auto">
+                <div class="stat-card glass rounded-xl p-4">
+                    <div class="text-3xl font-black text-zoo-400">50+</div>
+                    <div class="text-sm text-gray-500">AI Agents Built</div>
+                </div>
+                <div class="stat-card glass rounded-xl p-4">
+                    <div class="text-3xl font-black text-purple-400">10K+</div>
+                    <div class="text-sm text-gray-500">Lines of Code</div>
+                </div>
+                <div class="stat-card glass rounded-xl p-4">
+                    <div class="text-3xl font-black text-cyan-400">24/7</div>
+                    <div class="text-sm text-gray-500">Autonomous Ops</div>
+                </div>
+                <div class="stat-card glass rounded-xl p-4">
+                    <div class="text-3xl font-black text-amber-400">100%</div>
+                    <div class="text-sm text-gray-500">Uptime Target</div>
+                </div>
             </div>
         </div>
     </section>
@@ -96,32 +113,28 @@
                 <p class="text-xl text-gray-400">End-to-end solutions powered by AI</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service 1 -->
                 <div class="glass rounded-2xl p-8 hover:border-zoo-500/50 transition group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-zoo-500 to-pink-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🤖</div>
                     <h3 class="text-xl font-bold mb-3">AI Agents</h3>
-                    <p class="text-gray-400 text-sm mb-4">Autonomous agents that handle customer support, data analysis, and business operations 24/7.</p>
+                    <p class="text-gray-400 text-sm mb-4">Autonomous agents that handle customer support, data analysis, and business operations 24/7. Built with LangChain, custom tools, and production-grade reliability.</p>
                     <p class="text-zoo-400 font-bold">From $1,500</p>
                 </div>
-                <!-- Service 2 -->
                 <div class="glass rounded-2xl p-8 hover:border-purple-500/50 transition group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">📊</div>
                     <h3 class="text-xl font-bold mb-3">Trading Systems</h3>
-                    <p class="text-gray-400 text-sm mb-4">Custom MT5 Expert Advisors with backtesting, risk management, and genetic optimization.</p>
+                    <p class="text-gray-400 text-sm mb-4">Custom MT5 Expert Advisors with backtesting, risk management, and genetic optimization. Walk-Forward Analysis included.</p>
                     <p class="text-purple-400 font-bold">From $3,000</p>
                 </div>
-                <!-- Service 3 -->
                 <div class="glass rounded-2xl p-8 hover:border-cyan-500/50 transition group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🚀</div>
                     <h3 class="text-xl font-bold mb-3">Full-Stack Dev</h3>
-                    <p class="text-gray-400 text-sm mb-4">MVPs, web apps, APIs, and mobile apps built in weeks, not months.</p>
+                    <p class="text-gray-400 text-sm mb-4">MVPs, web apps, APIs, and mobile apps built in weeks, not months. Next.js, Python, TypeScript.</p>
                     <p class="text-cyan-400 font-bold">From $2,000</p>
                 </div>
-                <!-- Service 4 -->
                 <div class="glass rounded-2xl p-8 hover:border-amber-500/50 transition group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🎨</div>
                     <h3 class="text-xl font-bold mb-3">Design & UX</h3>
-                    <p class="text-gray-400 text-sm mb-4">Product design, branding, UI/UX research, and design systems that convert.</p>
+                    <p class="text-gray-400 text-sm mb-4">Product design, branding, UI/UX research, and design systems that convert. Dark-mode first.</p>
                     <p class="text-amber-400 font-bold">From $1,000</p>
                 </div>
             </div>
@@ -133,7 +146,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-5xl font-black mb-4">Digital <span class="text-gradient">Products</span></h2>
-                <p class="text-xl text-gray-400">Ready-to-use tools, templates, and courses</p>
+                <p class="text-xl text-gray-400">Ready-to-use tools, templates, and open-source</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass rounded-2xl overflow-hidden hover:border-zoo-500/50 transition">
@@ -145,7 +158,7 @@
                         <p class="text-gray-400 text-sm mb-4">Next.js boilerplate with auth, Stripe, dashboard, and more. Ship faster.</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-black text-zoo-400">$29</span>
-                            <a href="#" class="px-4 py-2 rounded-full bg-zoo-500 hover:bg-zoo-600 transition text-sm font-bold">Buy Now</a>
+                            <a href="https://github.com/crazycompanyinc/ai-saas-kit" class="px-4 py-2 rounded-full bg-zoo-500 hover:bg-zoo-600 transition text-sm font-bold">View</a>
                         </div>
                     </div>
                 </div>
@@ -158,7 +171,7 @@
                         <p class="text-gray-400 text-sm mb-4">MT5 Expert Advisor templates with backtesting, risk management, and optimization.</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-black text-purple-400">$49</span>
-                            <a href="#" class="px-4 py-2 rounded-full bg-purple-500 hover:bg-purple-600 transition text-sm font-bold">Buy Now</a>
+                            <a href="https://github.com/crazycompanyinc/trading-strategy-ai-platform" class="px-4 py-2 rounded-full bg-purple-500 hover:bg-purple-600 transition text-sm font-bold">View</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +184,7 @@
                         <p class="text-gray-400 text-sm mb-4">Build your own AI agent with our boilerplate. Tools, memory, and autonomy included.</p>
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-black text-cyan-400">$39</span>
-                            <a href="#" class="px-4 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 transition text-sm font-bold">Buy Now</a>
+                            <a href="https://github.com/crazycompanyinc" class="px-4 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 transition text-sm font-bold">View</a>
                         </div>
                     </div>
                 </div>
@@ -187,45 +200,63 @@
                 <p class="text-xl text-gray-400">What we're building right now</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <a href="https://fxreplay.zoo.dev" class="glass rounded-2xl p-8 hover:border-zoo-500/50 transition group">
+                <a href="https://github.com/crazycompanyinc/fxreplay-clone" class="glass rounded-2xl p-8 hover:border-zoo-500/50 transition group">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-xl">📊</div>
                         <div>
                             <h3 class="text-xl font-bold">FX Replay</h3>
-                            <p class="text-sm text-gray-500">fxreplay.zoo.dev</p>
+                            <p class="text-sm text-gray-500">github.com/crazycompanyinc/fxreplay-clone</p>
                         </div>
                     </div>
-                    <p class="text-gray-400">Trading backtesting platform with TradingView charts, Yahoo Finance data, and AI-powered analysis.</p>
+                    <p class="text-gray-400 mb-4">Trading backtesting platform with TradingView charts, Yahoo Finance data, and AI-powered analysis. Built with Next.js and Lightweight Charts.</p>
+                    <span class="text-zoo-400 text-sm">Open Source →</span>
                 </a>
-                <a href="https://titan.zoo.dev" class="glass rounded-2xl p-8 hover:border-purple-500/50 transition group">
+                <a href="https://github.com/crazycompanyinc/trading-strategy-ai-platform" class="glass rounded-2xl p-8 hover:border-purple-500/50 transition group">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xl">🤖</div>
                         <div>
                             <h3 class="text-xl font-bold">TITAN</h3>
-                            <p class="text-sm text-gray-500">titan.zoo.dev</p>
+                            <p class="text-sm text-gray-500">github.com/crazycompanyinc/trading-strategy-ai-platform</p>
                         </div>
                     </div>
-                    <p class="text-gray-400">Trading Intelligence & Testing Agent Network. AI-powered strategy development and backtesting.</p>
+                    <p class="text-gray-400 mb-4">Trading Intelligence & Testing Agent Network. AI-powered strategy development with natural language parsing and genetic optimization.</p>
+                    <span class="text-purple-400 text-sm">Open Source →</span>
                 </a>
-                <a href="https://agents.zoo.dev" class="glass rounded-2xl p-8 hover:border-cyan-500/50 transition group">
+                <a href="https://github.com/crazycompanyinc/diffguard" class="glass rounded-2xl p-8 hover:border-cyan-500/50 transition group">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-xl">🧠</div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-xl">🛡️</div>
                         <div>
-                            <h3 class="text-xl font-bold">ZOO Agents</h3>
-                            <p class="text-sm text-gray-500">agents.zoo.dev</p>
+                            <h3 class="text-xl font-bold">DiffGuard</h3>
+                            <p class="text-sm text-gray-500">github.com/crazycompanyinc/diffguard</p>
                         </div>
                     </div>
-                    <p class="text-gray-400">Autonomous AI agent platform. Build, deploy, and manage AI agents for your business.</p>
+                    <p class="text-gray-400 mb-4">Semantic PR review agent that argues against risky code changes. Devil's advocate for your codebase.</p>
+                    <span class="text-cyan-400 text-sm">Open Source →</span>
                 </a>
-                <a href="https://blog.zoo.dev" class="glass rounded-2xl p-8 hover:border-amber-500/50 transition group">
+                <a href="https://github.com/crazycompanyinc/api-polyglot" class="glass rounded-2xl p-8 hover:border-amber-500/50 transition group">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-xl">✍️</div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-xl">🌐</div>
                         <div>
-                            <h3 class="text-xl font-bold">ZOO Blog</h3>
-                            <p class="text-sm text-gray-500">blog.zoo.dev</p>
+                            <h3 class="text-xl font-bold">API Polyglot</h3>
+                            <p class="text-sm text-gray-500">github.com/crazycompanyinc/api-polyglot</p>
                         </div>
                     </div>
-                    <p class="text-gray-400">Insights on AI, trading, development, and building the future of autonomous systems.</p>
+                    <p class="text-gray-400 mb-4">Call any API from natural language. Auto-discovers endpoints, handles auth, and adapts to any REST API without manual integration.</p>
+                    <span class="text-amber-400 text-sm">Open Source →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass rounded-2xl p-12 text-center">
+                <h2 class="text-3xl font-black mb-4">We <span class="text-gradient">Open Source</span> Everything We Can</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8">We believe in building in public. Our tools, templates, and experiments are available for anyone to use, fork, and improve.</p>
+                <a href="https://github.com/crazycompanyinc" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 transition font-bold">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    Follow on GitHub
                 </a>
             </div>
         </div>
@@ -241,8 +272,8 @@
                     <a href="mailto:crazycompanyincmail@gmail.com" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg">
                         📧 Email Us
                     </a>
-                    <a href="https://twitter.com/zoo" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
-                        🐦 Follow on X
+                    <a href="https://github.com/crazycompanyinc" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
+                        ⭐ Star on GitHub
                     </a>
                 </div>
             </div>
@@ -260,6 +291,7 @@
             <div class="flex items-center gap-6 text-sm text-gray-500">
                 <a href="#services" class="hover:text-white transition">Services</a>
                 <a href="#products" class="hover:text-white transition">Products</a>
+                <a href="https://github.com/crazycompanyinc" class="hover:text-white transition">GitHub</a>
                 <a href="https://blog.zoo.dev" class="hover:text-white transition">Blog</a>
                 <a href="mailto:crazycompanyincmail@gmail.com" class="hover:text-white transition">Contact</a>
             </div>
