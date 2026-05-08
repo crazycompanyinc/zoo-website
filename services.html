@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — ZOO | AI Agents, Trading Systems & Software</title>
+    <meta name="description" content="Explore ZOO's services: AI agents, algorithmic trading systems, full-stack development, and design. Transparent pricing from $1,000.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{zoo:{50:'#fdf2f8',100:'#fce7f3',200:'#fbcfe8',300:'#f9a8d4',400:'#f472b6',500:'#ec4899',600:'#db2777',700:'#be185d',800:'#9d174d',900:'#831843'}}}}}</script>
+    <style>
+        .glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}
+        .text-gradient{background:linear-gradient(135deg,#ec4899,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-zoo-500 to-purple-600 flex items-center justify-center text-xl font-bold">Z</div>
+                <span class="text-xl font-bold">ZOO</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/services" class="text-white font-medium transition">Services</a>
+                <a href="/#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                <a href="/blog" class="text-gray-400 hover:text-white transition">Blog</a>
+                <a href="/#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+            </div>
+            <a href="/#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-medium text-sm">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-16">
+        <!-- Hero -->
+        <section class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-zoo-900/20 via-gray-950 to-purple-900/20"></div>
+            <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+                <h1 class="text-5xl md:text-6xl font-black mb-6">Our <span class="text-gradient">Services</span></h1>
+                <p class="text-xl text-gray-400">End-to-end technology solutions powered by AI. Transparent pricing. Fast delivery. Production-grade quality.</p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-12 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- AI Agents -->
+                    <div class="glass rounded-2xl p-10 hover:border-zoo-500/50 transition group">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-zoo-500 to-pink-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">🤖</div>
+                        <h2 class="text-2xl font-bold mb-2">AI Agents</h2>
+                        <p class="text-gray-400 mb-6">Autonomous agents that handle business operations 24/7. From customer support to lead generation, data analysis to code review.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Customer support automation (30s response)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Lead generation & outreach (8x more meetings)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Code review automation (95% fewer bugs)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Report generation (autonomous, scheduled)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">Starting from</span>
+                                <div class="text-3xl font-black text-zoo-400">$1,500</div>
+                            </div>
+                            <a href="/#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold">Get Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Trading Systems -->
+                    <div class="glass rounded-2xl p-10 hover:border-purple-500/50 transition group">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">📊</div>
+                        <h2 class="text-2xl font-bold mb-2">Algorithmic Trading</h2>
+                        <p class="text-gray-400 mb-6">Custom MT5 Expert Advisors with professional backtesting, risk management, and genetic optimization.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Strategy parser (natural language → EA)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">10+ years backtesting with real spread/slippage</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Walk-Forward Analysis (no overfitting)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Risk management (2% rule, max drawdown, Kelly)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">Starting from</span>
+                                <div class="text-3xl font-black text-purple-400">$3,000</div>
+                            </div>
+                            <a href="/#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transition font-bold">Get Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Full-Stack Development -->
+                    <div class="glass rounded-2xl p-10 hover:border-cyan-500/50 transition group">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">🚀</div>
+                        <h2 class="text-2xl font-bold mb-2">Full-Stack Development</h2>
+                        <p class="text-gray-400 mb-6">MVPs, web apps, APIs, and mobile apps built in weeks. Next.js, Python, TypeScript. Startup-speed delivery.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">MVP development (2-4 weeks)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Web apps (Next.js, React, TypeScript)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">API development (FastAPI, Node.js)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Stripe integration & billing</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">Starting from</span>
+                                <div class="text-3xl font-black text-cyan-400">$2,000</div>
+                            </div>
+                            <a href="/#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition font-bold">Get Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Design & UX -->
+                    <div class="glass rounded-2xl p-10 hover:border-amber-500/50 transition group">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">🎨</div>
+                        <h2 class="text-2xl font-bold mb-2">Design & UX</h2>
+                        <p class="text-gray-400 mb-6">Product design, branding, and UI/UX that converts. Dark-mode first. Design systems that scale.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Product design (from concept to prototype)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Branding & visual identity</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">UI/UX research & testing</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-400">✓</span>
+                                <span class="text-gray-300">Design systems (Figma, components)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">Starting from</span>
+                                <div class="text-3xl font-black text-amber-400">$1,000</div>
+                            </div>
+                            <a href="/#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 transition font-bold">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-20 relative">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-4xl font-black text-center mb-16">How We <span class="text-gradient">Work</span></h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-zoo-500 to-purple-600 flex items-center justify-center text-2xl font-black mx-auto mb-4">1</div>
+                        <h3 class="font-bold mb-2">Discovery</h3>
+                        <p class="text-gray-400 text-sm">We analyze your needs, processes, and goals. 1-week audit to find the best opportunities.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-2xl font-black mx-auto mb-4">2</div>
+                        <h3 class="font-bold mb-2">Prototype</h3>
+                        <p class="text-gray-400 text-sm">We build an MVP and validate results. 1-2 weeks to prove the concept works.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl font-black mx-auto mb-4">3</div>
+                        <h3 class="font-bold mb-2">Deploy</h3>
+                        <p class="text-gray-400 text-sm">Production deployment with full monitoring. 1 week to go live.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl font-black mx-auto mb-4">4</div>
+                        <h3 class="font-bold mb-2">Optimize</h3>
+                        <p class="text-gray-400 text-sm">Continuous iteration based on real data. Ongoing improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-12 relative">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-3xl font-black text-center mb-12">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <div class="space-y-4">
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="font-bold mb-2">How fast can you deliver?</h3>
+                        <p class="text-gray-400 text-sm">Most projects ship in 2-4 weeks. Simple AI agents can be live in 1 week. Complex trading systems take 4-6 weeks.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="font-bold mb-2">Do you work with startups?</h3>
+                        <p class="text-gray-400 text-sm">Yes. We specialize in startup-speed delivery. We've worked with YC companies and understand the move-fast mentality. We also understand startup budgets.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="font-bold mb-2">What if I need ongoing support?</h3>
+                        <p class="text-gray-400 text-sm">We offer monthly retainers for ongoing development, monitoring, and optimization. From $1,500/month for 10 hours of support.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="font-bold mb-2">Do you sign NDAs?</h3>
+                        <p class="text-gray-400 text-sm">Yes. We're happy to sign NDAs before any technical discussion. Your IP is yours.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="font-bold mb-2">What tech stack do you use?</h3>
+                        <p class="text-gray-400 text-sm">Primarily Next.js, React, TypeScript, Python, FastAPI, PostgreSQL, Redis, Stripe. We choose the right tool for each job.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 relative">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="glass rounded-3xl p-16 bg-gradient-to-br from-zoo-900/30 via-gray-900 to-purple-900/30">
+                    <h2 class="text-4xl font-black mb-6">Ready to <span class="text-gradient">Build</span>?</h2>
+                    <p class="text-xl text-gray-400 mb-10">Tell us what you're working on. First call is free, no commitment.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="mailto:crazycompanyincmail@gmail.com" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg">📧 Email Us</a>
+                        <a href="https://github.com/crazycompanyinc" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">⭐ See Our Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
+            <p>© 2026 ZOO. All rights reserved. | <a href="/" class="text-zoo-400 hover:text-zoo-300">zoo.dev</a></p>
+        </div>
+    </footer>
+</body>
+</html>
