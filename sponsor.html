@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor ZOO — Support Open-Source AI Agent Infrastructure</title>
+    <meta name="description" content="Sponsor ZOO's open-source AI agent infrastructure. Help us build the tools that power the next generation of autonomous AI agents.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zoo: { 50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4', 400: '#f472b6', 500: '#ec4899', 600: '#db2777', 700: '#be185d', 800: '#9d174d', 900: '#831843' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
+        .text-gradient { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); }
+        .tier-card { transition: all 0.3s ease; }
+        .tier-card:hover { transform: translateY(-4px); }
+        .popular { border: 2px solid #ec4899; position: relative; }
+        .popular::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #ec4899, #8b5cf6); padding: 2px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-zoo-500 to-purple-600 flex items-center justify-center text-xl font-bold">Z</div>
+                <span class="text-xl font-bold">ZOO</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="https://zoo.dev/#services" class="text-gray-400 hover:text-white transition">Services</a>
+                <a href="https://zoo.dev/#products" class="text-gray-400 hover:text-white transition">Products</a>
+                <a href="https://zoo.dev/pricing.html" class="text-gray-400 hover:text-white transition">Pricing</a>
+                <a href="/" class="text-zoo-400 font-bold">Sponsor</a>
+            </div>
+            <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="px-5 py-2 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-medium text-sm">💜 Sponsor on GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-zoo-500/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-zoo-300 mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Accepting Sponsors & Grants
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                Power the Future of <br>
+                <span class="text-gradient">Open-Source AI Agents</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                ZOO builds the infrastructure that lets any developer deploy autonomous AI agents. Your sponsorship directly funds open-source development.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg">
+                    💜 Sponsor on GitHub
+                </a>
+                <a href="#tiers" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
+                    View Tiers
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-gradient">63</div>
+                    <div class="text-gray-400 text-sm mt-1">GitHub Repos</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-gradient">139K</div>
+                    <div class="text-gray-400 text-sm mt-1">Stars (Hermes)</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-gradient">21K</div>
+                    <div class="text-gray-400 text-sm mt-1">Forks (Hermes)</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-gradient">MIT</div>
+                    <div class="text-gray-400 text-sm mt-1">Open Source</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="py-16 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">What Your Sponsorship Funds</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="https://github.com/crazycompanyinc/ai-saas-kit" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">🚀</div>
+                    <h3 class="text-xl font-bold mb-2">AI SaaS Kit</h3>
+                    <p class="text-gray-400 text-sm">Production-ready FastAPI starter kit for AI-powered SaaS. Multi-tenant, Stripe-integrated, deploy-ready.</p>
+                </a>
+                <a href="https://github.com/crazycompanyinc/forge" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">🔨</div>
+                    <h3 class="text-xl font-bold mb-2">Forge</h3>
+                    <p class="text-gray-400 text-sm">Autonomous code evolution system — AI-powered code generation, testing, and deployment.</p>
+                </a>
+                <a href="https://github.com/crazycompanyinc/agenthouse" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">🏪</div>
+                    <h3 class="text-xl font-bold mb-2">AgentHouse</h3>
+                    <p class="text-gray-400 text-sm">AI Agents Marketplace — discover, evaluate, and hire autonomous AI agents.</p>
+                </a>
+                <a href="https://github.com/crazycompanyinc/agentcontract" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">📜</div>
+                    <h3 class="text-xl font-bold mb-2">AgentContract</h3>
+                    <p class="text-gray-400 text-sm">Inter-agent communication protocol — agents publish intent, discover capabilities, coordinate.</p>
+                </a>
+                <a href="https://github.com/crazycompanyinc/trismegistus" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">⚙️</div>
+                    <h3 class="text-xl font-bold mb-2">Trismegistus</h3>
+                    <p class="text-gray-400 text-sm">The Agent Operating System — the missing OS layer for autonomous AI agents.</p>
+                </a>
+                <a href="https://github.com/crazycompanyinc/nexus" target="_blank" rel="noopener" class="glass rounded-2xl p-6 hover:border-zoo-500/50 transition">
+                    <div class="text-2xl mb-3">🔗</div>
+                    <h3 class="text-xl font-bold mb-2">Nexus</h3>
+                    <p class="text-gray-400 text-sm">Universal agent integration hub — connect any agent to any tool, API, or data source.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsor Tiers -->
+    <section id="tiers" class="py-16 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Sponsorship Tiers</h2>
+            <p class="text-gray-400 text-center mb-12 max-w-xl mx-auto">Every dollar goes directly to open-source development. Choose a tier that fits your budget.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Supporter -->
+                <div class="tier-card glass rounded-2xl p-8">
+                    <div class="text-3xl mb-4">💜</div>
+                    <h3 class="text-xl font-bold mb-1">Supporter</h3>
+                    <div class="text-3xl font-bold text-gradient mb-4">$5<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="space-y-3 text-gray-300 text-sm mb-8">
+                        <li class="flex items-center gap-2">✅ Sponsor badge on GitHub</li>
+                        <li class="flex items-center gap-2">✅ Name in SPONSORS.md</li>
+                        <li class="flex items-center gap-2">✅ Early access to updates</li>
+                    </ul>
+                    <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="block w-full py-3 rounded-full glass text-center hover:bg-white/10 transition font-medium">Select</a>
+                </div>
+
+                <!-- Sponsor (Popular) -->
+                <div class="tier-card glass rounded-2xl p-8 popular">
+                    <div class="text-3xl mb-4">⭐</div>
+                    <h3 class="text-xl font-bold mb-1">Sponsor</h3>
+                    <div class="text-3xl font-bold text-gradient mb-4">$100<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="space-y-3 text-gray-300 text-sm mb-8">
+                        <li class="flex items-center gap-2">✅ Everything in Supporter</li>
+                        <li class="flex items-center gap-2">✅ Logo on project README</li>
+                        <li class="flex items-center gap-2">✅ Priority issue response</li>
+                        <li class="flex items-center gap-2">✅ Early access to all releases</li>
+                    </ul>
+                    <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="block w-full py-3 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 text-center hover:from-zoo-600 hover:to-purple-700 transition font-medium">Select</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="tier-card glass rounded-2xl p-8">
+                    <div class="text-3xl mb-4">🏢</div>
+                    <h3 class="text-xl font-bold mb-1">Enterprise</h3>
+                    <div class="text-3xl font-bold text-gradient mb-4">$1,000<span class="text-lg text-gray-400">/mo</span></div>
+                    <ul class="space-y-3 text-gray-300 text-sm mb-8">
+                        <li class="flex items-center gap-2">✅ Everything in Sponsor</li>
+                        <li class="flex items-center gap-2">✅ Dedicated support channel</li>
+                        <li class="flex items-center gap-2">✅ Custom integration help</li>
+                        <li class="flex items-center gap-2">✅ Advisory role in roadmap</li>
+                        <li class="flex items-center gap-2">✅ Monthly team call</li>
+                    </ul>
+                    <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="block w-full py-3 rounded-full glass text-center hover:bg-white/10 transition font-medium">Select</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Funding -->
+    <section class="py-16 relative z-10">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Other Ways to Support ZOO</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-lg font-bold mb-2">🏛️ Grants & Cloud Credits</h3>
+                    <p class="text-gray-400 text-sm mb-4">We're eligible for non-dilutive funding programs. Refer us to your company's cloud provider:</p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Google for Startups Cloud — up to $350K credits</li>
+                        <li>• Microsoft for Startups — up to $150K Azure credits</li>
+                        <li>• AWS Activate — up to $100K credits</li>
+                        <li>• NVIDIA Inception — GPU credits + GTM support</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-lg font-bold mb-2">🤝 Corporate Sponsorship</h3>
+                    <p class="text-gray-400 text-sm mb-4">If your company uses ZOO tools in production, consider a corporate sponsorship:</p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>• Custom SLA and support</li>
+                        <li>• Priority feature development</li>
+                        <li>• Co-marketing opportunities</li>
+                        <li>• Logo on all project pages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Support Open-Source AI?</h2>
+            <p class="text-xl text-gray-400 mb-10">Join the sponsors who make ZOO's open-source development possible.</p>
+            <a href="https://github.com/sponsors/crazycompanyinc" target="_blank" rel="noopener" class="inline-block px-10 py-5 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-xl">
+                💜 Become a Sponsor Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
+            <p>© 2026 ZOO (Crazy Company Inc). Open-source AI agent infrastructure.</p>
+            <p class="mt-2">
+                <a href="https://github.com/crazycompanyinc" class="hover:text-zoo-400 transition">GitHub</a> •
+                <a href="https://zoo.dev" class="hover:text-zoo-400 transition">Website</a> •
+                <a href="https://github.com/sponsors/crazycompanyinc" class="hover:text-zoo-400 transition">Sponsor</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
