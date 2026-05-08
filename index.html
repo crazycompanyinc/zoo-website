@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOO — AI-Native Technology Company</title>
+    <meta name="description" content="ZOO builds AI agents, trading systems, and software that works 24/7. We create autonomous technology for the future.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zoo: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                            800: '#9d174d',
+                            900: '#831843',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); } 50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.6); } }
+        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .animate-gradient { background-size: 200% 200%; animation: gradient 8s ease infinite; }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
+        .text-gradient { background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-zoo-500 to-purple-600 flex items-center justify-center text-xl font-bold">Z</div>
+                <span class="text-xl font-bold">ZOO</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-gray-400 hover:text-white transition">Services</a>
+                <a href="#products" class="text-gray-400 hover:text-white transition">Products</a>
+                <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                <a href="https://blog.zoo.dev" class="text-gray-400 hover:text-white transition">Blog</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+            </div>
+            <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-medium text-sm">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-zoo-900/20 via-gray-950 to-purple-900/20"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-zoo-500/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        
+        <div class="relative z-10 text-center max-w-5xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-zoo-300 mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                AI-Native. Always On. 24/7.
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                We Build <span class="text-gradient">Intelligent</span><br>Systems
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12">
+                AI agents, trading algorithms, and software that works around the clock. 
+                We don't sleep. Your business shouldn't have to wait.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg animate-pulse-glow">
+                    Explore Services
+                </a>
+                <a href="#products" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
+                    Browse Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-black mb-4">What We <span class="text-gradient">Build</span></h2>
+                <p class="text-xl text-gray-400">End-to-end solutions powered by AI</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass rounded-2xl p-8 hover:border-zoo-500/50 transition group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-zoo-500 to-pink-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🤖</div>
+                    <h3 class="text-xl font-bold mb-3">AI Agents</h3>
+                    <p class="text-gray-400 text-sm mb-4">Autonomous agents that handle customer support, data analysis, and business operations 24/7.</p>
+                    <p class="text-zoo-400 font-bold">From $1,500</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass rounded-2xl p-8 hover:border-purple-500/50 transition group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">📊</div>
+                    <h3 class="text-xl font-bold mb-3">Trading Systems</h3>
+                    <p class="text-gray-400 text-sm mb-4">Custom MT5 Expert Advisors with backtesting, risk management, and genetic optimization.</p>
+                    <p class="text-purple-400 font-bold">From $3,000</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass rounded-2xl p-8 hover:border-cyan-500/50 transition group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🚀</div>
+                    <h3 class="text-xl font-bold mb-3">Full-Stack Dev</h3>
+                    <p class="text-gray-400 text-sm mb-4">MVPs, web apps, APIs, and mobile apps built in weeks, not months.</p>
+                    <p class="text-cyan-400 font-bold">From $2,000</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="glass rounded-2xl p-8 hover:border-amber-500/50 transition group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">🎨</div>
+                    <h3 class="text-xl font-bold mb-3">Design & UX</h3>
+                    <p class="text-gray-400 text-sm mb-4">Product design, branding, UI/UX research, and design systems that convert.</p>
+                    <p class="text-amber-400 font-bold">From $1,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-black mb-4">Digital <span class="text-gradient">Products</span></h2>
+                <p class="text-xl text-gray-400">Ready-to-use tools, templates, and courses</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass rounded-2xl overflow-hidden hover:border-zoo-500/50 transition">
+                    <div class="h-48 bg-gradient-to-br from-zoo-600 to-purple-700 flex items-center justify-center">
+                        <span class="text-6xl">⚡</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">SaaS Starter Kit</h3>
+                        <p class="text-gray-400 text-sm mb-4">Next.js boilerplate with auth, Stripe, dashboard, and more. Ship faster.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-zoo-400">$29</span>
+                            <a href="#" class="px-4 py-2 rounded-full bg-zoo-500 hover:bg-zoo-600 transition text-sm font-bold">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl overflow-hidden hover:border-purple-500/50 transition">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center">
+                        <span class="text-6xl">📈</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">Trading EA Templates</h3>
+                        <p class="text-gray-400 text-sm mb-4">MT5 Expert Advisor templates with backtesting, risk management, and optimization.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-purple-400">$49</span>
+                            <a href="#" class="px-4 py-2 rounded-full bg-purple-500 hover:bg-purple-600 transition text-sm font-bold">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl overflow-hidden hover:border-cyan-500/50 transition">
+                    <div class="h-48 bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center">
+                        <span class="text-6xl">🧠</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">AI Agent Starter</h3>
+                        <p class="text-gray-400 text-sm mb-4">Build your own AI agent with our boilerplate. Tools, memory, and autonomy included.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-cyan-400">$39</span>
+                            <a href="#" class="px-4 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 transition text-sm font-bold">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-black mb-4">Our <span class="text-gradient">Projects</span></h2>
+                <p class="text-xl text-gray-400">What we're building right now</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <a href="https://fxreplay.zoo.dev" class="glass rounded-2xl p-8 hover:border-zoo-500/50 transition group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-xl">📊</div>
+                        <div>
+                            <h3 class="text-xl font-bold">FX Replay</h3>
+                            <p class="text-sm text-gray-500">fxreplay.zoo.dev</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Trading backtesting platform with TradingView charts, Yahoo Finance data, and AI-powered analysis.</p>
+                </a>
+                <a href="https://titan.zoo.dev" class="glass rounded-2xl p-8 hover:border-purple-500/50 transition group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xl">🤖</div>
+                        <div>
+                            <h3 class="text-xl font-bold">TITAN</h3>
+                            <p class="text-sm text-gray-500">titan.zoo.dev</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Trading Intelligence & Testing Agent Network. AI-powered strategy development and backtesting.</p>
+                </a>
+                <a href="https://agents.zoo.dev" class="glass rounded-2xl p-8 hover:border-cyan-500/50 transition group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-xl">🧠</div>
+                        <div>
+                            <h3 class="text-xl font-bold">ZOO Agents</h3>
+                            <p class="text-sm text-gray-500">agents.zoo.dev</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Autonomous AI agent platform. Build, deploy, and manage AI agents for your business.</p>
+                </a>
+                <a href="https://blog.zoo.dev" class="glass rounded-2xl p-8 hover:border-amber-500/50 transition group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-xl">✍️</div>
+                        <div>
+                            <h3 class="text-xl font-bold">ZOO Blog</h3>
+                            <p class="text-sm text-gray-500">blog.zoo.dev</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Insights on AI, trading, development, and building the future of autonomous systems.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-32 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="glass rounded-3xl p-16 animate-gradient bg-gradient-to-br from-zoo-900/30 via-gray-900 to-purple-900/30">
+                <h2 class="text-5xl font-black mb-6">Let's Build <span class="text-gradient">Together</span></h2>
+                <p class="text-xl text-gray-400 mb-10">Ready to automate, scale, or build something new? We're always working.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:crazycompanyincmail@gmail.com" class="px-8 py-4 rounded-full bg-gradient-to-r from-zoo-500 to-purple-600 hover:from-zoo-600 hover:to-purple-700 transition font-bold text-lg">
+                        📧 Email Us
+                    </a>
+                    <a href="https://twitter.com/zoo" class="px-8 py-4 rounded-full glass hover:bg-white/10 transition font-bold text-lg">
+                        🐦 Follow on X
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-zoo-500 to-purple-600 flex items-center justify-center text-sm font-bold">Z</div>
+                <span class="font-bold">ZOO</span>
+                <span class="text-gray-500 text-sm">© 2026</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-gray-500">
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#products" class="hover:text-white transition">Products</a>
+                <a href="https://blog.zoo.dev" class="hover:text-white transition">Blog</a>
+                <a href="mailto:crazycompanyincmail@gmail.com" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
