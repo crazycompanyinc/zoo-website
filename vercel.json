@@ -1,6 +1,7 @@
 {
   "version": 2,
   "routes": [
+    { "src": "/dashboard", "dest": "/dashboard/index.html" },
     { "src": "/products/wallet-as-a-service", "dest": "/products/wallet-as-a-service.html" },
     { "src": "/products/(.*)", "dest": "/products/$1" },
     { "src": "/products", "dest": "/products/index.html" }
