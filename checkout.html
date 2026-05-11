@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — AI SaaS Kit | Secure Payment</title>
+<meta name="description" content="Complete your purchase of AI SaaS Kit. One-time payment, lifetime access. 14-day money-back guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-card-hover: #1a1a28;
+    --border: #2a2a3a;
+    --text: #e8e8f0;
+    --text-muted: #8888a0;
+    --accent: #6c5ce7;
+    --accent-light: #a29bfe;
+    --accent-glow: rgba(108, 92, 231, 0.3);
+    --green: #00d68f;
+    --green-glow: rgba(0, 214, 143, 0.2);
+    --orange: #ff9f43;
+    --red: #ff6b6b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Background */
+  .gradient-bg {
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(108,92,231,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(0,214,143,0.06) 0%, transparent 50%);
+    z-index: -1;
+  }
+
+  /* Nav */
+  nav {
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(20px);
+  }
+  .logo {
+    font-weight: 800; font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+  }
+  .secure-badge {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.82rem; color: var(--green);
+    background: var(--green-glow);
+    padding: 0.35rem 0.85rem; border-radius: 50px;
+  }
+
+  /* Main layout */
+  .checkout-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Left column — form */
+  .checkout-form h1 {
+    font-size: 1.8rem; font-weight: 800;
+    margin-bottom: 0.4rem;
+    line-height: 1.25;
+  }
+  .checkout-form .subtitle {
+    color: var(--text-muted); font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Urgency banner */
+  .urgency-banner {
+    background: linear-gradient(135deg, rgba(255,107,107,0.12), rgba(255,159,67,0.1));
+    border: 1px solid rgba(255,107,107,0.25);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+  @keyframes pulse-border {
+    0%, 100% { border-color: rgba(255,107,107,0.25); }
+    50% { border-color: rgba(255,107,107,0.5); }
+  }
+  .urgency-banner.critical {
+    background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));
+    border-color: rgba(255,107,107,0.5);
+    animation: pulse-border 1s ease-in-out infinite;
+  }
+  .urgency-icon { font-size: 1.3rem; }
+  .urgency-text { font-size: 0.88rem; }
+  .urgency-text strong { color: var(--orange); }
+  .countdown {
+    font-weight: 800;
+    color: var(--red);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+  }
+  .countdown.critical {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Stock indicator */
+  .stock-indicator {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem; color: var(--orange);
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,159,67,0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(255,159,67,0.15);
+  }
+  .stock-dots { display: flex; gap: 3px; }
+  .stock-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--orange);
+    animation: stockPulse 1.5s ease-in-out infinite;
+  }
+  .stock-dot:nth-child(2) { animation-delay: 0.2s; }
+  .stock-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes stockPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Form sections */
+  .form-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .form-section h2 {
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .step-num {
+    width: 28px; height: 28px; min-width: 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem;
+  }
+
+  /* Tier selector */
+  .tier-options { display: flex; flex-direction: column; gap: 0.75rem; }
+  .tier-option {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .tier-option:hover { border-color: var(--accent); }
+  .tier-option.selected {
+    border-color: var(--accent);
+    background: rgba(108,92,231,0.08);
+    box-shadow: 0 0 0 1px var(--accent), 0 4px 20px rgba(108,92,231,0.15);
+  }
+  .tier-option input[type="radio"] { display: none; }
+  .tier-radio {
+    width: 22px; height: 22px; min-width: 22px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .tier-option.selected .tier-radio {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+  .tier-option.selected .tier-radio::after {
+    content: '✓';
+    color: white; font-size: 0.75rem; font-weight: 700;
+  }
+  .tier-info { flex: 1; }
+  .tier-info h3 { font-size: 1rem; font-weight: 700; }
+  .tier-info p { font-size: 0.82rem; color: var(--text-muted); }
+  .tier-price { text-align: right; }
+  .tier-price .amount {
+    font-size: 1.4rem; font-weight: 800;
+  }
+  .tier-price .original {
+    font-size: 0.85rem; color: var(--text-muted);
+    text-decoration: line-through;
+  }
+  .tier-save {
+    position: absolute; top: -10px; right: 16px;
+    background: var(--green);
+    color: #000; padding: 0.2rem 0.6rem;
+    border-radius: 50px; font-size: 0.7rem; font-weight: 700;
+  }
+
+  /* Discount code */
+  .discount-row {
+    display: flex; gap: 0.5rem; margin-top: 1rem;
+  }
+  .discount-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    text-transform: uppercase;
+  }
+  .discount-input:focus { border-color: var(--accent); }
+  .discount-input::placeholder { text-transform: none; }
+  .btn-apply {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .btn-apply:hover { background: var(--accent-light); }
+  .discount-msg {
+    font-size: 0.82rem; margin-top: 0.5rem;
+    min-height: 1.2rem;
+  }
+  .discount-msg.success { color: var(--green); }
+  .discount-msg.error { color: var(--red); }
+
+  /* Email input */
+  .email-input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .email-input:focus { border-color: var(--accent); }
+
+  /* Payment button */
+  .btn-pay {
+    width: 100%;
+    padding: 1.1rem;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-pay-accent {
+    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 25px var(--accent-glow);
+  }
+  .btn-pay-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px var(--accent-glow);
+  }
+  .btn-pay-accent::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255,255,255,0.1) 45%,
+      rgba(255,255,255,0.15) 50%,
+      rgba(255,255,255,0.1) 55%,
+      transparent 60%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+
+  /* Right column — order summary */
+  .order-summary {
+    position: sticky;
+    top: 2rem;
+  }
+  .summary-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+  .summary-card h2 {
+    font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .summary-row {
+    display: flex; justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .summary-row.discount { color: var(--green); }
+  .summary-divider {
+    height: 1px; background: var(--border);
+    margin: 0.75rem 0;
+  }
+  .summary-total {
+    display: flex; justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5rem;
+  }
+  .summary-total .label { font-weight: 700; font-size: 1rem; }
+  .summary-total .amount {
+    font-size: 1.8rem; font-weight: 900;
+  }
+  .summary-total .amount .currency {
+    font-size: 1rem; vertical-align: super;
+  }
+
+  /* You save badge in total */
+  .you-save {
+    display: inline-block;
+    background: var(--green-glow);
+    color: var(--green);
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* Upsell */
+  .upsell-box {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, rgba(108,92,231,0.12), rgba(139,92,246,0.08));
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 14px;
+    padding: 1.25rem;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .upsell-box:hover {
+    border-color: rgba(108,92,231,0.5);
+  }
+  .upsell-badge {
+    position: absolute; top: -10px; left: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white; padding: 0.2rem 0.75rem;
+    border-radius: 50px; font-size: 0.7rem; font-weight: 700;
+  }
+  .upsell-box h3 {
+    font-size: 0.95rem; font-weight: 700;
+    margin-bottom: 0.4rem; margin-top: 0.25rem;
+  }
+  .upsell-box p {
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  .upsell-toggle {
+    display: flex; align-items: center; gap: 0.6rem;
+    cursor: pointer;
+  }
+  .upsell-toggle input {
+    width: 18px; height: 18px;
+    accent-color: var(--accent);
+  }
+  .upsell-toggle span {
+    font-size: 0.88rem; font-weight: 600;
+  }
+  .upsell-price {
+    color: var(--green); font-weight: 700;
+  }
+
+  /* Benefits list */
+  .benefits {
+    margin-top: 1.5rem;
+    list-style: none;
+  }
+  .benefits li {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    padding: 0.4rem 0;
+    font-size: 0.85rem; color: var(--text-muted);
+  }
+  .benefits li .check {
+    color: var(--green); font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* Trust badges */
+  .trust-badges {
+    margin-top: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .trust-badge {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; color: var(--text-muted);
+  }
+  .trust-badge .icon { font-size: 1.1rem; }
+
+  /* Guarantee box */
+  .guarantee-box {
+    margin-top: 1.25rem;
+    background: rgba(0,214,143,0.06);
+    border: 1px solid rgba(0,214,143,0.2);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+  .guarantee-box .shield { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .guarantee-box h4 {
+    font-size: 0.9rem; font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .guarantee-box p {
+    font-size: 0.78rem; color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Social proof mini */
+  .mini-proof {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+  .mini-proof strong { color: var(--text); }
+
+  /* Testimonial mini */
+  .mini-testimonial {
+    margin-top: 1rem;
+    background: rgba(108,92,231,0.06);
+    border: 1px solid rgba(108,92,231,0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .mini-testimonial .author {
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.78rem;
+  }
+  .mini-testimonial .stars { color: var(--orange); font-style: normal; }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .checkout-wrapper {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+    .order-summary { position: static; }
+  }
+  @media (max-width: 480px) {
+    .checkout-wrapper { padding: 1.5rem 1rem 3rem; }
+    .checkout-form h1 { font-size: 1.4rem; }
+    .summary-card { padding: 1.5rem; }
+  }
+
+  /* Upsell accepted state */
+  .upsell-box.accepted {
+    border-color: var(--green);
+    background: rgba(0,214,143,0.08);
+  }
+
+  /* Loading state */
+  .btn-pay.loading {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  .btn-pay.loading::before {
+    content: '';
+    display: inline-block;
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Discount hint */
+  .discount-hint {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(108,92,231,0.06);
+    border: 1px dashed rgba(108,92,231,0.25);
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .discount-hint:hover { opacity: 0.8; background: rgba(108,92,231,0.1); }
+
+  /* Pay subtitle */
+  .pay-subtitle {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+  }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 200;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    max-width: 360px;
+  }
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .toast-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .toast-body { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* Exit intent popup */
+  .exit-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .exit-popup.show {
+    display: flex;
+  }
+  .exit-popup-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 480px;
+    text-align: center;
+    position: relative;
+    animation: popIn 0.3s ease-out;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .exit-popup-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .exit-popup-close:hover { color: var(--text); }
+  .exit-popup h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+  .exit-popup p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .exit-popup .btn-pay {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .exit-code {
+    background: rgba(108,92,231,0.15);
+    border: 1px dashed var(--accent);
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    display: inline-block;
+  }
+  .exit-code span {
+    color: var(--green);
+    font-size: 1.3rem;
+  }
+
+  /* Social proof notification slide-in */
+  .proof-notification {
+    position: fixed;
+    bottom: 2rem; left: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem 1.25rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 200;
+    display: flex; align-items: center; gap: 0.75rem;
+    transform: translateX(-120px);
+    transition: transform 0.4s ease-out;
+    font-size: 0.82rem;
+    max-width: 320px;
+  }
+  .proof-notification.visible {
+    transform: translateX(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="gradient-bg"></div>
+
+<nav>
+  <a href="index.html" class="logo">AI SaaS Kit</a>
+  <div class="secure-badge">🔒 256-bit SSL Secure Checkout</div>
+</nav>
+
+<div class="checkout-wrapper">
+  <!-- LEFT: Form -->
+  <div class="checkout-form">
+    <h1>🚀 You're About to Save 3+ Weeks of Dev Time</h1>
+    <p class="subtitle">Join 2,400+ developers who skipped the boilerplate and launched their AI SaaS faster. One-time payment — lifetime access, no recurring fees, ever.</p>
+
+    <!-- Urgency banner with countdown -->
+    <div class="urgency-banner" id="urgencyBanner">
+      <span class="urgency-icon">⚡</span>
+      <div class="urgency-text">
+        <strong>🔥 Launch pricing expires in</strong>
+        <span class="countdown" id="countdown">14:59</span>
+        &mdash; Price goes up when the clock hits zero!
+      </div>
+    </div>
+
+    <!-- Stock scarcity indicator -->
+    <div class="stock-indicator" id="stockIndicator">
+      <div class="stock-dots">
+        <div class="stock-dot"></div>
+        <div class="stock-dot"></div>
+        <div class="stock-dot"></div>
+      </div>
+      <span><strong>High demand:</strong> Only <span id="stockLeft">7</span> spots left at this price (updated in real-time)</span>
+    </div>
+
+    <!-- Discount hint -->
+    <div class="discount-hint" id="discountHint" onclick="document.getElementById('discountInput').focus()">
+      💡 <span>Have a coupon? <strong>Try WELCOME20 for 20% off</strong></span> — click to apply
+    </div>
+
+    <!-- Step 1: Choose plan -->
+    <div class="form-section">
+      <h2><span class="step-num">1</span> Choose Your Plan</h2>
+      <div class="tier-options">
+        <label class="tier-option" id="tier-starter" onclick="selectTier('starter')">
+          <input type="radio" name="tier" value="starter">
+          <div class="tier-radio"></div>
+          <div class="tier-info">
+            <h3>Starter — Launch This Weekend</h3>
+            <p>Everything to ship your first AI product: auth, payments, UI, OpenAI integration. Start earning in days.</p>
+          </div>
+          <div class="tier-price">
+            <div class="amount" data-base="29">$29</div>
+          </div>
+        </label>
+        <label class="tier-option selected" id="tier-pro" onclick="selectTier('pro')">
+          <input type="radio" name="tier" value="pro" checked>
+          <div class="tier-radio"></div>
+          <div class="tier-info">
+            <h3>Pro <span style="font-size:0.75rem;color:var(--accent);font-weight:600;">⭐ 78% OF BUYERS CHOOSE THIS</span></h3>
+            <p>Launch a real SaaS with subscriptions, multi-AI models, team tools, and analytics. Everything in Starter + more.</p>
+          </div>
+          <div class="tier-price">
+            <div class="original">$79</div>
+            <div class="amount" data-base="59">$59</div>
+          </div>
+          <div class="tier-save">SAVE $20</div>
+        </label>
+        <label class="tier-option" id="tier-bundle" onclick="selectTier('bundle')">
+          <input type="radio" name="tier" value="bundle">
+          <div class="tier-radio"></div>
+          <div class="tier-info">
+            <h3>Bundle — Start Earning Back Today <span style="font-size:0.75rem;color:var(--green);font-weight:600;">💰 EARN $500+ WITH 1 CLIENT</span></h3>
+            <p>Everything in Pro + resell license (5 clients), white-label, admin panel, and a 1-on-1 onboarding call. Pays for itself fast.</p>
+          </div>
+          <div class="tier-price">
+            <div class="original">$149</div>
+            <div class="amount" data-base="99">$99</div>
+          </div>
+          <div class="tier-save">SAVE $50</div>
+        </label>
+      </div>
+
+      <!-- Discount code -->
+      <div class="discount-row">
+        <input type="text" class="discount-input" id="discountInput" placeholder="Have a coupon code?">
+        <button class="btn-apply" onclick="applyDiscount()">Apply</button>
+      </div>
+      <div class="discount-msg" id="discountMsg"></div>
+    </div>
+
+    <!-- Step 2: Email -->
+    <div class="form-section">
+      <h2><span class="step-num">2</span> Where Should We Send Your Download?</h2>
+      <input type="email" class="email-input" id="emailInput" placeholder="you@example.com — Instant GitHub access after payment" required>
+    </div>
+
+    <!-- Step 3: Pay -->
+    <div class="form-section">
+      <h2><span class="step-num">3</span> Unlock Instant Access</h2>
+      <button class="btn-pay btn-pay-accent" id="payButton" onclick="processPayment()">
+        🚀 Yes, I Want to Ship Faster — <span id="payAmount">$59</span> One-Time
+      </button>
+      <p class="pay-subtitle">🔒 256-bit SSL · Powered by Stripe · Instant GitHub access · 14-day money-back guarantee</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: Order Summary -->
+  <div class="order-summary">
+    <div class="summary-card">
+      <h2>Order Summary</h2>
+
+      <div class="summary-row">
+        <span id="summaryPlan">Pro Plan</span>
+        <span id="summaryPrice">$59</span>
+      </div>
+      <div class="summary-row discount" id="discountRow" style="display:none;">
+        <span>Discount (<span id="discountCode"></span>)</span>
+        <span id="discountAmt">-$0</span>
+      </div>
+
+      <div class="summary-divider"></div>
+
+      <div class="summary-total">
+        <span class="label">Total Today</span>
+        <span class="amount"><span class="currency">$</span><span id="totalAmount">59</span></span>
+      </div>
+      <div id="savingsLine" style="text-align:right;margin-top:0.5rem;font-size:0.82rem;color:var(--green);">
+        You save <strong>$30</strong> vs building from scratch (~3 weeks of dev time)
+      </div>
+
+      <!-- Upsell -->
+      <div class="upsell-box" id="upsellBox">
+        <div class="upsell-badge">🔥 SMART UPGRADE</div>
+        <h3 id="upsellTitle">Upgrade to Pro — Unlock <span class="upsell-price">10x More Value</span></h3>
+        <p id="upsellCopy">You chose Starter. 78% of buyers pick Pro — get Stripe subscriptions, 40+ components, multi-AI integrations, team management, and lifetime updates for just $30 more.</p>
+        <label class="upsell-toggle">
+          <input type="checkbox" id="upsellCheck" onchange="toggleUpsell()">
+          <span>Yes, upgrade me to <span id="upsellTarget">Pro</span> for just <span class="upsell-price" id="upsellPrice">+$30</span></span>
+        </label>
+      </div>
+
+      <!-- Benefits -->
+      <ul class="benefits" id="benefitsList">
+        <li><span class="check">✓</span> Launch SaaS with recurring revenue (subscriptions)</li>
+        <li><span class="check">✓</span> 40+ components — everything you need</li>
+        <li><span class="check">✓</span> Multi-AI: OpenAI, Anthropic & Replicate</li>
+        <li><span class="check">✓</span> Manage team roles & permissions</li>
+        <li><span class="check">✓</span> Analytics dashboard to track growth</li>
+        <li><span class="check">✓</span> Lifetime updates — never pay again</li>
+        <li><span class="check">✓</span> Priority support when you need it</li>
+      </ul>
+
+      <!-- Trust badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <span class="icon">🔒</span>
+          <span>256-bit SSL encrypted — bank-level security</span>
+        </div>
+        <div class="trust-badge">
+          <span class="icon">💳</span>
+          <span>Powered by Stripe — PCI Level 1 compliant</span>
+        </div>
+        <div class="trust-badge">
+          <span class="icon">📧</span>
+          <span>Instant GitHub access — no waiting</span>
+        </div>
+        <div class="trust-badge">
+          <span class="icon">🔄</span>
+          <span>No subscription — one payment, lifetime access</span>
+        </div>
+      </div>
+
+      <!-- Guarantee -->
+      <div class="guarantee-box">
+        <div class="shield">🛡️</div>
+        <h4>14-Day Money-Back Guarantee</h4>
+        <p>Not satisfied? Get a full refund within 14 days. No questions asked, no hassle. We'll even help you migrate to another solution.</p>
+      </div>
+
+      <!-- Social proof -->
+      <div class="mini-proof">
+        ⭐⭐⭐⭐⭐ <strong>2,400+</strong> developers already shipped with AI SaaS Kit
+      </div>
+
+      <!-- Mini testimonial -->
+      <div class="mini-testimonial">
+        <div class="stars">★★★★★</div>
+        "I launched my AI writing tool in 3 days. The Stripe integration alone saved me a week. Best $59 I've ever spent."
+        <div class="author">— Marcos R., Founder @ WriteAI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Exit Intent Popup -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-popup-content">
+    <button class="exit-popup-close" onclick="closeExitPopup()">×</button>
+    <h2>Wait! Don't Leave Empty-Handed 👀</h2>
+    <p>You're about to walk away from the fastest way to launch your AI SaaS. Here's an exclusive discount — just for you:</p>
+    <div class="exit-code">Use code <span>WELCOME20</span> for <strong>20% OFF</strong></div>
+    <button class="btn-pay btn-pay-accent" onclick="closeExitPopup(); document.getElementById('discountInput').focus();">
+      🎁 Apply My 20% Discount
+    </button>
+    <p style="margin-top:1rem;font-size:0.78rem;color:var(--text-muted);">⏰ This offer expires when you close the tab</p>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <div class="toast-title" id="toastTitle"></div>
+  <div class="toast-body" id="toastBody"></div>
+</div>
+
+<script>
+  // === CONFIG ===
+  const PRICES = { starter: 29, pro: 59, bundle: 99 };
+  const ORIGINAL_PRICES = { starter: 29, pro: 79, bundle: 149 };
+  const STRIPE_URLS = {
+    starter: 'https://buy.stripe.com/YOUR_STARTER_CHECKOUT_URL',
+    pro: 'https://buy.stripe.com/YOUR_PRO_CHECKOUT_URL',
+    bundle: 'https://buy.stripe.com/YOUR_BUNDLE_CHECKOUT_URL'
+  };
+  const VALID_CODES = {
+    'WELCOME20': 0.20,
+    'SAVE20': 0.20,
+    'LAUNCH50': 0.50,
+    'VIP30': 0.30
+  };
+
+  // === STATE ===
+  let state = {
+    tier: 'pro',
+    basePrice: 59,
+    discount: 0,
+    discountCode: '',
+    upsellApplied: false,
+    finalPrice: 59
+  };
+
+  // === COUNTDOWN TIMER (persistent per session) ===
+  function startCountdown() {
+    let expiry = sessionStorage.getItem('checkoutExpiry');
+    if (!expiry) {
+      expiry = Date.now() + 15 * 60 * 1000;
+      sessionStorage.setItem('checkoutExpiry', expiry);
+    } else {
+      expiry = parseInt(expiry);
+    }
+
+    function update() {
+      const now = Date.now();
+      let remaining = Math.max(0, expiry - now);
+      const mins = Math.floor(remaining / 60000);
+      const secs = Math.floor((remaining % 60000) / 1000);
+      const countdownEl = document.getElementById('countdown');
+      countdownEl.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+
+      const banner = document.getElementById('urgencyBanner');
+      if (mins < 5) {
+        banner.classList.add('critical');
+        countdownEl.classList.add('critical');
+      } else {
+        banner.classList.remove('critical');
+        countdownEl.classList.remove('critical');
+      }
+
+      if (remaining <= 0) {
+        const newExpiry = Date.now() + 15 * 60 * 1000;
+        sessionStorage.setItem('checkoutExpiry', newExpiry);
+        expiry = newExpiry;
+      }
+    }
+    update();
+    setInterval(update, 1000);
+  }
+  startCountdown();
+
+  // === STOCK SCARCITY ===
+  function updateStock() {
+    let stock = parseInt(sessionStorage.getItem('checkoutStock'));
+    if (!stock || stock <= 0) stock = 7;
+    document.getElementById('stockLeft').textContent = stock;
+  }
+  updateStock();
+
+  // === TIER SELECTION ===
+  function selectTier(tier) {
+    document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
+    document.getElementById('tier-' + tier).classList.add('selected');
+
+    state.tier = tier;
+    state.basePrice = PRICES[tier];
+    state.upsellApplied = false;
+    document.getElementById('upsellCheck').checked = false;
+    document.getElementById('upsellBox').classList.remove('accepted');
+
+    updateUpsell();
+    updatePricing();
+  }
+
+  // === DISCOUNT CODE ===
+  function applyDiscount() {
+    const input = document.getElementById('discountInput');
+    const msg = document.getElementById('discountMsg');
+    const code = input.value.trim().toUpperCase();
+
+    if (!code) {
+      msg.textContent = 'Please enter a coupon code';
+      msg.className = 'discount-msg error';
+      return;
+    }
+
+    if (VALID_CODES[code]) {
+      state.discount = VALID_CODES[code];
+      state.discountCode = code;
+      const discountPct = Math.round(state.discount * 100);
+      const savings = Math.round(state.basePrice * state.discount);
+      msg.textContent = `✓ Code "${code}" applied — ${discountPct}% off! You save $${savings}!`;
+      msg.className = 'discount-msg success';
+      document.getElementById('discountHint').style.display = 'none';
+      updatePricing();
+      showToast('🎉 Discount Applied!', `You just saved $${savings} with code ${code}. Final price: $${state.finalPrice}`);
+    } else {
+      state.discount = 0;
+      state.discountCode = '';
+      msg.textContent = '✗ Invalid code. Hint: Try WELCOME20 for 20% off!';
+      msg.className = 'discount-msg error';
+      document.getElementById('discountRow').style.display = 'none';
+      updatePricing();
+    }
+  }
+
+  document.getElementById('discountInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') applyDiscount();
+  });
+
+  // === UPSELL ===
+  function updateUpsell() {
+    const upsellBox = document.getElementById('upsellBox');
+    const benefitsList = document.getElementById('benefitsList');
+
+    const benefits = {
+      starter: [
+        '<li><span class="check">✓</span> Ship your AI product this weekend</li>',
+        '<li><span class="check">✓</span> Auth system ready (OAuth + magic links)</li>',
+        '<li><span class="check">✓</span> Accept payments from day one (Stripe)</li>',
+        '<li><span class="check">✓</span> 20+ polished UI components</li>',
+        '<li><span class="check">✓</span> Plug in OpenAI in minutes</li>',
+        '<li><span class="check">✓</span> Professional email templates</li>',
+        '<li><span class="check">✓</span> 6 months of updates</li>'
+      ],
+      pro: [
+        '<li><span class="check">✓</span> Launch SaaS with recurring revenue (subscriptions)</li>',
+        '<li><span class="check">✓</span> 40+ components — everything you need</li>',
+        '<li><span class="check">✓</span> Multi-AI: OpenAI, Anthropic & Replicate</li>',
+        '<li><span class="check">✓</span> Manage team roles & permissions</li>',
+        '<li><span class="check">✓</span> Analytics dashboard to track growth</li>',
+        '<li><span class="check">✓</span> Lifetime updates — never pay again</li>',
+        '<li><span class="check">✓</span> Priority support when you need it</li>'
+      ],
+      bundle: [
+        '<li><span class="check">✓</span> Everything in Pro, plus...</li>',
+        '<li><span class="check">✓</span> Resell to 5 clients — earn it back fast</li>',
+        '<li><span class="check">✓</span> White-label — make it yours</li>',
+        '<li><span class="check">✓</span> Advanced admin control panel</li>',
+        '<li><span class="check">✓</span> API rate limiting built-in</li>',
+        '<li><span class="check">✓</span> Personal onboarding call</li>',
+        '<li><span class="check">✓</span> Lifetime updates</li>'
+      ]
+    };
+    benefitsList.innerHTML = benefits[state.tier].join('');
+
+    if (state.tier === 'starter') {
+      upsellBox.style.display = 'block';
+      document.getElementById('upsellTitle').innerHTML = 'Upgrade to Pro &mdash; Unlock <span class="upsell-price">10x More Value</span>';
+      document.getElementById('upsellCopy').textContent = 'You chose Starter. 78% of buyers pick Pro — get Stripe subscriptions, 40+ components, multi-AI integrations, team management, and lifetime updates for just $30 more.';
+      document.getElementById('upsellTarget').textContent = 'Pro';
+      document.getElementById('upsellPrice').textContent = '+$30';
+      document.getElementById('upsellCheck').checked = false;
+      upsellBox.classList.remove('accepted');
+      state.upsellApplied = false;
+    } else if (state.tier === 'pro') {
+      upsellBox.style.display = 'block';
+      document.getElementById('upsellTitle').innerHTML = 'Go Bundle &mdash; Start <span class="upsell-price">Reselling Today</span>';
+      document.getElementById('upsellCopy').textContent = 'Add a resell license for 5 clients, white-label rights, advanced admin panel, and a personal onboarding call — all for just $40 more. Earn back your investment with one client.';
+      document.getElementById('upsellTarget').textContent = 'Bundle';
+      document.getElementById('upsellPrice').textContent = '+$40';
+      document.getElementById('upsellCheck').checked = false;
+      upsellBox.classList.remove('accepted');
+      state.upsellApplied = false;
+    } else {
+      upsellBox.style.display = 'none';
+      state.upsellApplied = false;
+    }
+  }
+
+  function toggleUpsell() {
+    const checked = document.getElementById('upsellCheck').checked;
+    const box = document.getElementById('upsellBox');
+
+    if (checked) {
+      box.classList.add('accepted');
+      state.upsellApplied = true;
+      if (state.tier === 'starter') {
+        state.tier = 'pro';
+        state.basePrice = PRICES.pro;
+        document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
+        document.getElementById('tier-pro').classList.add('selected');
+      } else if (state.tier === 'pro') {
+        state.tier = 'bundle';
+        state.basePrice = PRICES.bundle;
+        document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
+        document.getElementById('tier-bundle').classList.add('selected');
+      }
+      showToast('🎉 Upgrade Unlocked!', 'You just upgraded! New features have been added to your order.');
+    } else {
+      box.classList.remove('accepted');
+      state.upsellApplied = false;
+      const selected = document.querySelector('.tier-option.selected');
+      if (selected) {
+        const tier = selected.id.replace('tier-', '');
+        state.tier = tier;
+        state.basePrice = PRICES[tier];
+      }
+    }
+    updateUpsell();
+    updatePricing();
+  }
+
+  // === UPDATE PRICING ===
+  function updatePricing() {
+    let price = state.basePrice;
+    const discountAmt = Math.round(price * state.discount);
+    const finalPrice = price - discountAmt;
+    const savingsVsCustom = Math.max(0, price - 29); // savings message
+
+    const tierNames = { starter: 'Starter Plan', pro: 'Pro Plan', bundle: 'Bundle Plan' };
+    document.getElementById('summaryPlan').textContent = tierNames[state.tier];
+    document.getElementById('summaryPrice').textContent = '$' + price;
+
+    if (state.discount > 0) {
+      document.getElementById('discountRow').style.display = 'flex';
+      document.getElementById('discountCode').textContent = state.discountCode;
+      document.getElementById('discountAmt').textContent = '-$' + discountAmt;
+    } else {
+      document.getElementById('discountRow').style.display = 'none';
+    }
+
+    document.getElementById('totalAmount').textContent = finalPrice;
+    document.getElementById('payAmount').textContent = '$' + finalPrice;
+    state.finalPrice = finalPrice;
+
+    // Update savings line
+    const hoursSaved = state.tier === 'starter' ? '20+' : state.tier === 'pro' ? '40+' : '60+';
+    const savingsLine = document.getElementById('savingsLine');
+    if (discountAmt > 0) {
+      savingsLine.innerHTML = `You save <strong>$${discountAmt}</strong> with coupon + <strong>${hoursSaved} hours</strong> of dev time`;
+    } else {
+      savingsLine.innerHTML = `You save <strong>${hoursSaved} hours</strong> of dev time vs building from scratch`;
+    }
+  }
+
+  // === PROCESS PAYMENT ===
+  function processPayment() {
+    const email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) {
+      showToast('📧 Please enter your email', 'We need your email to deliver your download link and license key.');
+      document.getElementById('emailInput').focus();
+      return;
+    }
+
+    const btn = document.getElementById('payButton');
+    btn.classList.add('loading');
+    btn.innerHTML = '⏳ Processing your order...';
+
+    // Save email for remarketing
+    try {
+      let emails = JSON.parse(localStorage.getItem('checkout_emails') || '[]');
+      if (!emails.includes(email)) {
+        emails.push(email);
+        localStorage.setItem('checkout_emails', JSON.stringify(emails));
+      }
+    } catch(e) {}
+
+    setTimeout(() => {
+      const url = STRIPE_URLS[state.tier];
+      if (url.includes('YOUR_')) {
+        btn.classList.remove('loading');
+        btn.innerHTML = '🚀 Yes, I Want to Ship Faster — <span id="payAmount">$' + state.finalPrice + '</span> One-Time';
+        // Show modal instead of toast for better UX
+        const tierNames = { starter: 'Starter', pro: 'Pro', bundle: 'Bundle' };
+        document.getElementById('modalOrderSummary').textContent = tierNames[state.tier] + ' Plan — $' + state.finalPrice;
+        document.getElementById('stripeModal').style.display = 'flex';
+        return;
+      }
+      const redirectUrl = url + (url.includes('?') ? '&' : '?') + 'prefilled_email=' + encodeURIComponent(email);
+      window.location.href = redirectUrl;
+    }, 1500);
+  }
+
+  // === TOAST ===
+  function showToast(title, body) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastBody').textContent = body;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 5000);
+  }
+
+  // === ENTER KEY on email ===
+  document.getElementById('emailInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') processPayment();
+  });
+
+  // === EXIT INTENT POPUP ===
+  let exitPopupShown = false;
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 10 && !exitPopupShown && state.discount === 0) {
+      exitPopupShown = true;
+      document.getElementById('exitPopup').classList.add('show');
+    }
+  });
+
+  function closeExitPopup() {
+    document.getElementById('exitPopup').classList.remove('show');
+  }
+
+  // Close on backdrop click
+  document.getElementById('exitPopup').addEventListener('click', function(e) {
+    if (e.target === this) closeExitPopup();
+  });
+
+  // === SOCIAL PROOF NOTIFICATIONS ===
+  const proofMessages = [
+    { name: "Alex M.", location: "New York", tier: "Pro", time: "2 min ago" },
+    { name: "Sarah K.", location: "London", tier: "Pro", time: "5 min ago" },
+    { name: "James L.", location: "Berlin", tier: "Bundle", time: "8 min ago" },
+    { name: "Maria R.", location: "Madrid", tier: "Starter", time: "12 min ago" },
+    { name: "Chris P.", location: "San Francisco", tier: "Pro", time: "15 min ago" },
+    { name: "Yuki T.", location: "Tokyo", tier: "Bundle", time: "18 min ago" },
+    { name: "Lucas S.", location: "São Paulo", tier: "Pro", time: "22 min ago" },
+    { name: "Emma W.", location: "Sydney", tier: "Starter", time: "25 min ago" },
+  ];
+  let proofIndex = 0;
+  function showSocialProof() {
+    const msg = proofMessages[proofIndex % proofMessages.length];
+    proofIndex++;
+
+    const notification = document.createElement('div');
+    notification.className = 'proof-notification';
+    notification.innerHTML = '<span style="font-size:1.2rem;">🎉</span><div><strong style="font-size:0.85rem;">' + msg.name + ' from ' + msg.location + '</strong><br><span style="color:var(--text-muted);">purchased ' + msg.tier + ' — ' + msg.time + '</span></div>';
+    document.body.appendChild(notification);
+    setTimeout(() => notification.classList.add('visible'), 100);
+    setTimeout(() => {
+      notification.classList.remove('visible');
+      setTimeout(() => notification.remove(), 400);
+    }, 5000);
+  }
+  setTimeout(() => {
+    showSocialProof();
+    setInterval(showSocialProof, 20000 + Math.random() * 15000);
+  }, 3000);
+
+  // === PAGE VISIT TRACKING ===
+  let visitCount = parseInt(sessionStorage.getItem('checkoutVisits') || '0');
+  visitCount++;
+  sessionStorage.setItem('checkoutVisits', visitCount);
+
+  // Show special message on 2nd+ visit
+  if (visitCount >= 2) {
+    setTimeout(() => {
+      showToast('👋 Welcome back!', "Still thinking it over? Don't forget — the launch pricing expires soon. Use WELCOME20 for an extra 20% off.");
+    }, 2000);
+  }
+
+  // === INIT ===
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlTier = urlParams.get('tier');
+  if (urlTier && PRICES[urlTier]) {
+    state.tier = urlTier;
+    state.basePrice = PRICES[urlTier];
+    document.querySelectorAll('.tier-option').forEach(el => el.classList.remove('selected'));
+    const tierEl = document.getElementById('tier-' + urlTier);
+    if (tierEl) {
+      tierEl.classList.add('selected');
+      tierEl.querySelector('input[type="radio"]').checked = true;
+    }
+  }
+  updateUpsell();
+  updatePricing();
+</script>
+
+<!-- Stripe Not Configured Modal -->
+<div id="stripeModal" style="position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10000;display:none;align-items:center;justify-content:center;">
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🔒</div>
+    <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.75rem;">Payment Coming Soon</h2>
+    <p style="color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;">
+      We're currently setting up our payment processor. Your email has been saved and we'll notify you the moment purchases go live.
+    </p>
+    <div style="background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);border-radius:12px;padding:1rem;margin-bottom:1.5rem;text-align:left;">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.25rem;">Your order:</p>
+      <p style="font-weight:700;font-size:1.1rem;" id="modalOrderSummary">Pro Plan — $59</p>
+    </div>
+    <button onclick="document.getElementById('stripeModal').style.display='none'" style="background:linear-gradient(135deg, var(--accent), #8b5cf6);color:white;border:none;border-radius:12px;padding:0.9rem 2rem;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;width:100%;">
+      Got It — Notify Me When Live
+    </button>
+  </div>
+</div>
+
+</body>
+</html>
